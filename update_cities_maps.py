@@ -1,12 +1,12 @@
 import json
 
-# Read the JSON file
+
 with open('data/db.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# Add city information and locations map to each country
+
 for country in data.get('countries', []):
-    # Add city field with capital city info
+   
     if 'city' not in country:
         capital = country.get('capital', 'Unknown')
         country['city'] = {
@@ -15,7 +15,7 @@ for country in data.get('countries', []):
             'description': f'{capital} is the capital city of {country.get("name", "")}'
         }
     
-    # Add locations map with coordinates
+
     if 'locations_map' not in country:
         country['locations_map'] = {
             'center': {
